@@ -23,12 +23,13 @@ Item {
     property color shadowColor: "#bf000000"
     property bool isDark: true
     property string wallpaperSource: "file:///var/tmp/sddm-theme/wallpaper.png"
-    property string fontFamily: (typeof config !== "undefined" && config.Font) ? config.Font : "JetBrainsMono Nerd Font"
+    property string fontFamily: (typeof config !== "undefined" && config.Font) ? config.Font : "Geist"
 
     function loadDynamicTheme() {
         var paths = ["file:///var/tmp/sddm-theme/colorscheme.json"];
         tryLoadColors(0, paths);
         loadWallpaper();
+        loadFont();
     }
 
     function tryLoadColors(idx, paths) {
@@ -85,6 +86,10 @@ Item {
                             if (data.isDark !== undefined)
                                 root.isDark = data.isDark;
 
+                            if (data.fontFamily)
+                                root.fontFamily = data.fontFamily;
+                            else if (data.font)
+                                root.fontFamily = data.font;
                             return ;
                         } catch (e) {
                         }
@@ -137,6 +142,40 @@ Item {
                     }
                 }
                 tryLoadWallText(idx + 1, paths);
+            }
+        };
+        xhr.send();
+    }
+
+    function loadFont() {
+        var paths = ["file:///var/tmp/sddm-theme/settings_prefs.json", "file:///var/tmp/sddm-theme/colorscheme.json"];
+        tryLoadFont(0, paths);
+    }
+
+    function tryLoadFont(idx, paths) {
+        if (idx >= paths.length)
+            return ;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", paths[idx]);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200 || xhr.status === 0) {
+                    if (xhr.responseText && xhr.responseText.trim().length > 0) {
+                        try {
+                            var data = JSON.parse(xhr.responseText);
+                            if (data.fontFamily) {
+                                root.fontFamily = data.fontFamily;
+                                return ;
+                            } else if (data.font) {
+                                root.fontFamily = data.font;
+                                return ;
+                            }
+                        } catch (e) {
+                        }
+                    }
+                }
+                tryLoadFont(idx + 1, paths);
             }
         };
         xhr.send();

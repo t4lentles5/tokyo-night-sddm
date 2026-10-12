@@ -44,7 +44,7 @@ Main customization options available in `theme.conf`:
 | Setting | Description | Default |
 | :--- | :--- | :--- |
 | `Background` | Fallback wallpaper path relative to theme root | `"Backgrounds/win11.png"` |
-| `Font` | UI font family (must be accessible to X11/root) | `"JetBrainsMono Nerd Font"` |
+| `Font` | UI font family (must be accessible to X11/root) | `"Geist"` |
 | `MainColor` | Primary accent color fallback | `"#7aa2f7"` |
 | `BackgroundColor` | Card background color fallback | `"#16161e"` |
 | `HourFormat` | Hour format (`"hh:mm AP"` for 12h or `"HH:mm"` for 24h) | `"hh:mm AP"` |
