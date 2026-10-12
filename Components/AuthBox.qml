@@ -28,6 +28,9 @@ Item {
 
     }
 
+    onCurrentUsernameChanged: {
+        faceImage.source = authRoot.currentUsername ? ("/home/" + authRoot.currentUsername + "/.face") : "";
+    }
     implicitWidth: 400
     implicitHeight: contentLayout.implicitHeight + 48
     width: implicitWidth
@@ -138,11 +141,23 @@ Item {
                         id: faceImage
 
                         anchors.fill: parent
-                        source: authRoot.currentUsername ? ("file:///home/" + authRoot.currentUsername + "/.face") : ""
+                        source: authRoot.currentUsername ? ("/home/" + authRoot.currentUsername + "/.face") : ""
                         fillMode: Image.PreserveAspectCrop
                         mipmap: true
                         asynchronous: true
                         visible: false
+                        onStatusChanged: {
+                            if (status === Image.Error) {
+                                var user = authRoot.currentUsername;
+                                if (!user)
+                                    return ;
+
+                                var currentSrc = source.toString();
+                                if (currentSrc.indexOf("/.face.icon") === -1 && currentSrc.indexOf("/.face") !== -1)
+                                    source = "/home/" + user + "/.face.icon";
+
+                            }
+                        }
                     }
 
                     Rectangle {
