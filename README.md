@@ -1,70 +1,58 @@
 <h2 align="center">🗼 Tokyo Night SDDM 🗼</h2>
 
-<p align=center>
-A Tokyo Night theme for the <a href="https://github.com/sddm/sddm">SDDM Login Manager</a>
+<p align="center">
+A sleek, modern, and reactive SDDM theme tailored for the <a href="https://github.com/t4lentles5/minflair"><b>Minflair</b></a> desktop environment, featuring dynamic color scheme and wallpaper synchronization.
 </p>
 
-<h2 align=center>Preview</h2>
-<center>
-<img src="./Previews/1.png" alt="preview-1">
-<details>
-<summary align=center>More Previews</summary>
-<img src="./Previews/2.png" alt="preview-2">
-<img src="./Previews/3.png" alt="preview-4">
-<img src="./Previews/4.png" alt="preview-3">
-</details>
-</center>
+---
 
-## Install
-### From sources
-> _Assumes that you've installed and configured SDDM correctly_ (if not [read more](https://wiki.archlinux.org/title/SDDM))
+## ✨ Features
 
->  Please make sure you have the following dependencies installed:
->  `qt5-quickcontrols2`, `qt5-graphicaleffects`, `qt5-svg` 
+- 🕒 **Stylized Digital Clock**: 12h/24h format support with blinking colon and formatted date.
+- 👤 **Modern Authentication Card**:
+  - Circular avatar with automatic `~/.face` detection and user initial fallback.
+  - Portable multi-user support with a dropdown selector.
+  - Interactive login feedback and shake animation on failed authentication.
+- 🎨 **Dynamic Theming**: Automatically synchronizes with <a href="https://github.com/t4lentles5/minflair">Minflair</a> (Quickshell) colors and wallpapers via `/var/tmp/sddm-theme/`, with static fallbacks in `theme.conf`.
+- ⚙️ **Top Bar Controls**:
+  - Time-adaptive greeting pill.
+  - Desktop session selector (Hyprland, Wayland, X11, etc.).
+  - Power action controls (Suspend, Reboot, Power Off).
 
-1. Open terminal, and clone the repository with:
+---
 
-   ```sh
-   git clone https://github.com/rototrash/tokyo-night-sddm.git ~/tokyo-night-sddm
-   ```
+## 📦 Dependencies
 
-2. Them move it as follows:
+Ensure the following Qt 5 packages are installed on your system:
 
-   ```sh
-   sudo mv ~/tokyo-night-sddm /usr/share/sddm/themes/
-   ```
+- `qt5-quickcontrols2`
+- `qt5-graphicaleffects`
+- `qt5-svg`
 
-### Arch Linux
-This theme is available on the [AUR](https://aur.archlinux.org/packages/sddm-theme-tokyo-night), you can install it with `makepkg` or using an AUR helper.
+On Arch Linux:
 
 ```sh
-git clone https://aur.archlinux.org/sddm-theme-tokyo-night.git
-cd sddm-theme-tokyo-night
-makepkg -Ccsi
+sudo pacman -S qt5-quickcontrols2 qt5-graphicaleffects qt5-svg
 ```
 
-## Configure
-
-Edit the `/etc/sddm.conf` (with any text editor with **raised** privileges), so that it looks like this:
-
-```sh
-sudo nano /etc/sddm.conf  # use any text editor with raised privileges
 ---
-[Theme]
-Current=tokyo-night-sddm
-   ```
 
-### Language and time format
+## ⚙️ Configuration (`theme.conf`)
 
-- You can also change the time format.
-- To change the default wallpaper put desired image in the `tokyo-night-sddm/Backgrounds/` folder and add the name of the image followed by its extension (`.jpg` or `.png`) in `theme.conf` file.
-- You can also customize it further if you wish in the `theme.conf`
-(blur, form position, etc).
-## Credits
+Main customization options available in `theme.conf`:
 
-- Based on the theme [`Sugar Dark for SDDM`](https://github.com/MarianArlt/sddm-sugar-dark) by [**MarianArlt**](https://github.com/MarianArlt).
-- AUR Package by [**julian-poidevin**](https://github.com/julian-poidevin)
+| Setting | Description | Default |
+| :--- | :--- | :--- |
+| `Background` | Fallback wallpaper path relative to theme root | `"Backgrounds/win11.png"` |
+| `Font` | UI font family (must be accessible to X11/root) | `"JetBrainsMono Nerd Font"` |
+| `MainColor` | Primary accent color fallback | `"#7aa2f7"` |
+| `BackgroundColor` | Card background color fallback | `"#16161e"` |
+| `HourFormat` | Hour format (`"hh:mm AP"` for 12h or `"HH:mm"` for 24h) | `"hh:mm AP"` |
+| `HeaderText` | Custom greeting text (leave empty for dynamic greeting) | `""` |
+| `ForceHideSystemButtons` | Completely hide power actions pill | `"false"` |
 
-## License
+---
+
+## 📜 License
 
 [GNU Lesser General Public License v3.0](LICENSE)

@@ -1,0 +1,6 @@
+SvgIcon 1.0 SvgIcon.qml
+Background 1.0 Background.qml
+ClockGroup 1.0 ClockGroup.qml
+AuthBox 1.0 AuthBox.qml
+TopLeftGroup 1.0 TopLeftGroup.qml
+TopRightGroup 1.0 TopRightGroup.qml
