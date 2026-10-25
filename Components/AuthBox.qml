@@ -79,7 +79,7 @@ Item {
 
         anchors.fill: parent
         radius: 20
-        color: root.bgColor
+        color: root.bgGlassColor
         border.color: authRoot.authFailed ? root.accentComplementaryColor : (passwordInput.activeFocus ? root.accentColor : root.borderColor)
         border.width: 1
 
@@ -267,7 +267,7 @@ Item {
             Layout.fillWidth: true
             Layout.preferredHeight: 46
             radius: 14
-            color: passwordInput.activeFocus ? root.bgSecondaryColor : root.bgTertiaryColor
+            color: root.bgSecondaryColor
             border.color: authRoot.authFailed ? root.accentComplementaryColor : (passwordInput.activeFocus ? root.accentColor : root.borderColor)
             border.width: passwordInput.activeFocus ? 2 : 1
 
@@ -571,7 +571,7 @@ Item {
 
         background: Rectangle {
             radius: 14
-            color: root.bgColor
+            color: root.bgGlassColor
             border.color: root.borderColor
             border.width: 1
 

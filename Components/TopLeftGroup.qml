@@ -38,7 +38,7 @@ Item {
 
         anchors.fill: parent
         radius: height / 2
-        color: root.bgColor
+        color: root.bgGlassColor
         border.color: root.borderColor
         border.width: 1
 

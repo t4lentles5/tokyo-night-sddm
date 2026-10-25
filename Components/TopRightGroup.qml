@@ -41,7 +41,7 @@ RowLayout {
 
             anchors.fill: parent
             radius: height / 2
-            color: root.bgColor
+            color: root.bgGlassColor
             border.color: sessionMouse.containsMouse ? root.accentColor : root.borderColor
             border.width: 1
 
@@ -109,7 +109,7 @@ RowLayout {
 
             background: Rectangle {
                 radius: 12
-                color: root.bgColor
+                color: root.bgGlassColor
                 border.color: root.borderColor
                 border.width: 1
 
@@ -181,7 +181,7 @@ RowLayout {
 
             anchors.fill: parent
             radius: height / 2
-            color: root.bgColor
+            color: root.bgGlassColor
             border.color: root.borderColor
             border.width: 1
 

@@ -18,6 +18,9 @@ Item {
     property color overlayBaseColor: "#a38fd8"
     property color bgSecondaryColor: "#0fa38fd8"
     property color bgTertiaryColor: "#05a38fd8"
+    // Translucent surface for floating cards and pills, so the blurred
+    // wallpaper stays visible behind them (matches the Minflair LockScreen).
+    property color bgGlassColor: Qt.rgba(bgColor.r, bgColor.g, bgColor.b, bgColor.a * 0.45)
     property color bgAccentColor: "#268265cc"
     property color bgAccentComplementaryColor: "#26cc64c8"
     property color shadowColor: "#bf000000"
@@ -191,7 +194,7 @@ Item {
         authBox.forceFocus();
     }
 
-    // Dynamic background with wallpaper blur, dark tint, grid, and radial glows
+    // Dynamic background with wallpaper blur, dark tint, and radial glows
     Background {
         id: bgRect
     }

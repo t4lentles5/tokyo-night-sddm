@@ -36,37 +36,6 @@ Rectangle {
         opacity: 0.7
     }
 
-    // Subtle modern grid pattern
-    Item {
-        anchors.fill: parent
-        opacity: 0.03
-
-        Repeater {
-            model: Math.ceil(parent.width / 120)
-
-            Rectangle {
-                x: index * 120
-                width: 1
-                height: bgRect.height
-                color: root.mutedColor
-            }
-
-        }
-
-        Repeater {
-            model: Math.ceil(parent.height / 120)
-
-            Rectangle {
-                y: index * 120
-                width: bgRect.width
-                height: 1
-                color: root.mutedColor
-            }
-
-        }
-
-    }
-
     // Top-right complementary accent glow
     RadialGradient {
         anchors.fill: parent
