@@ -6,6 +6,7 @@ ColumnLayout {
 
     property date currentTime: new Date()
     property bool is24h: (typeof config !== "undefined" && config.HourFormat !== "long") ? (config.HourFormat.indexOf("AP") === -1 && config.HourFormat.indexOf("ap") === -1 && config.HourFormat.indexOf("A") === -1) : true
+    property string dateFormat: (typeof config !== "undefined" && config.DateFormat && config.DateFormat.trim() !== "") ? config.DateFormat.trim() : "ddd · dd MMM · yyyy"
 
     spacing: 12
 
@@ -97,7 +98,7 @@ ColumnLayout {
 
     Text {
         Layout.alignment: Qt.AlignHCenter
-        text: Qt.formatDate(clockRoot.currentTime, "ddd · dd MMM · yyyy").toUpperCase()
+        text: Qt.formatDate(clockRoot.currentTime, clockRoot.dateFormat).toUpperCase()
         font.family: root.fontFamily
         font.pixelSize: 13
         font.letterSpacing: 3

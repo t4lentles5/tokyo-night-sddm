@@ -41,15 +41,16 @@ sudo pacman -S qt5-quickcontrols2 qt5-graphicaleffects qt5-svg
 
 Main customization options available in `theme.conf`:
 
-| Setting | Description | Default |
-| :--- | :--- | :--- |
-| `Background` | Fallback wallpaper path relative to theme root | `"Backgrounds/win11.png"` |
-| `Font` | UI font family (must be accessible to X11/root) | `"Geist"` |
-| `MainColor` | Primary accent color fallback | `"#7aa2f7"` |
-| `BackgroundColor` | Card background color fallback | `"#16161e"` |
-| `HourFormat` | Hour format (`"hh:mm AP"` for 12h or `"HH:mm"` for 24h) | `"hh:mm AP"` |
-| `HeaderText` | Custom greeting text (leave empty for dynamic greeting) | `""` |
-| `ForceHideSystemButtons` | Completely hide power actions pill | `"false"` |
+| Setting                  | Description                                             | Default                   |
+| :----------------------- | :------------------------------------------------------ | :------------------------ |
+| `Background`             | Fallback wallpaper path relative to theme root          | `"Backgrounds/win11.png"` |
+| `Font`                   | UI font family (must be accessible to X11/root)         | `"Geist"`                 |
+| `MainColor`              | Primary accent color fallback                           | `"#7aa2f7"`               |
+| `BackgroundColor`        | Card background color fallback                          | `"#16161e"`               |
+| `HourFormat`             | Hour format (`"hh:mm AP"` for 12h or `"HH:mm"` for 24h) | `"HH:mm"`                 |
+| `DateFormat`             | Date format used by the clock (`Qt.formatDate` syntax)  | `"ddd · dd MMM · yyyy"`   |
+| `HeaderText`             | Custom greeting text (leave empty for dynamic greeting) | `""`                      |
+| `ForceHideSystemButtons` | Completely hide power actions pill                      | `"false"`                 |
 
 ---
 

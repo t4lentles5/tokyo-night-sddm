@@ -19,7 +19,7 @@ Item {
         return "GOOD EVENING";
     }
 
-    visible: typeof config === "undefined" || config.HeaderText !== ""
+    visible: typeof config === "undefined" || !config.HeaderText || config.HeaderText.trim() !== ""
     implicitWidth: layout.implicitWidth + 32
     implicitHeight: 36
 
